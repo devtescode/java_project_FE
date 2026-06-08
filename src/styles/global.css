@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Dark theme (default) */
+.dark {
+  --bg-base: #070710;
+  --bg-surface: #0d0d1a;
+  --bg-elevated: #12121f;
+  --bg-hover: #1a1a2e;
+  --accent-primary: #7c6ff7;
+  --accent-secondary: #4fd1c5;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-muted: rgba(255, 255, 255, 0.10);
+  --border-accent: rgba(124, 111, 247, 0.4);
+  --text-primary: #f0f0ff;
+  --text-secondary: #8888aa;
+  --text-muted: #44445a;
+  --text-accent: #a89dff;
+  --orb-purple: rgba(124, 111, 247, 0.08);
+  --orb-teal: rgba(79, 209, 197, 0.06);
+  --selection-bg: rgba(124, 111, 247, 0.3);
+  --input-focus-shadow: 0 0 0 3px rgba(124, 111, 247, 0.12), 0 4px 24px rgba(0, 0, 0, 0.5);
+  --brand-text: linear-gradient(90deg, #f0f0ff, #a89dff);
+  --hero-text: linear-gradient(135deg, #f0f0ff 40%, #a89dff 100%);
+  --code-header-bg: #111122;
+  --code-bg: #0a0a12;
+  --overlay-bg: rgba(0, 0, 0, 0.45);
+  --noise-opacity: 0.4;
+  --user-avatar-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Light theme */
+.light {
+  --bg-base: #f4f5fb;
+  --bg-surface: #ffffff;
+  --bg-elevated: #eef0f8;
+  --bg-hover: #e4e6f2;
+  --accent-primary: #6b5ce7;
+  --accent-secondary: #0d9488;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-muted: rgba(15, 23, 42, 0.14);
+  --border-accent: rgba(107, 92, 231, 0.35);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-accent: #5b4fd4;
+  --orb-purple: rgba(107, 92, 231, 0.12);
+  --orb-teal: rgba(13, 148, 136, 0.1);
+  --selection-bg: rgba(107, 92, 231, 0.2);
+  --input-focus-shadow: 0 0 0 3px rgba(107, 92, 231, 0.15), 0 4px 24px rgba(15, 23, 42, 0.08);
+  --brand-text: linear-gradient(90deg, #0f172a, #5b4fd4);
+  --hero-text: linear-gradient(135deg, #0f172a 40%, #5b4fd4 100%);
+  --code-header-bg: #e8eaf4;
+  --code-bg: #f8f9fc;
+  --overlay-bg: rgba(15, 23, 42, 0.25);
+  --noise-opacity: 0.15;
+  --user-avatar-bg: rgba(15, 23, 42, 0.06);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-base text-text-primary font-body overflow-hidden h-screen;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  #root { @apply h-screen flex; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-text-muted rounded-sm; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-text-secondary; }
+
+  ::selection {
+    background: var(--selection-bg);
+    @apply text-text-primary;
+  }
+}
+
+@layer components {
+  .noise-overlay {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: var(--noise-opacity);
+    transition: opacity 0.25s ease;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .streaming-cursor {
+    @apply inline-block w-0.5 h-[1em] bg-accent-primary rounded-sm ml-0.5 align-text-bottom animate-cursor-blink;
+  }
+
+  .dot-1 { animation-delay: 0s; }
+  .dot-2 { animation-delay: 0.2s; }
+  .dot-3 { animation-delay: 0.4s; }
+
+  .bg-orb-purple {
+    background: radial-gradient(circle, var(--orb-purple) 0%, transparent 70%);
+  }
+
+  .bg-orb-teal {
+    background: radial-gradient(circle, var(--orb-teal) 0%, transparent 70%);
+  }
+
+  .chat-input-box:focus-within {
+    box-shadow: var(--input-focus-shadow);
+  }
+}
