@@ -37,26 +37,9 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
     }
   };
 
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.visualViewport && containerRef.current) {
-        containerRef.current.style.bottom = "0px";
-      }
-    };
-
-    window.visualViewport?.addEventListener("resize", handleResize);
-
-    return () => {
-      window.visualViewport?.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <div
-      ref={containerRef}
-      className="px-6 pb-4 pt-3 border-t border-border-subtle bg-bg-base">
+    <div 
+     className="px-6 pb-4 pt-3 border-t border-border-subtle bg-bg-base">
       {/* Quick prompts */}
       {showQuick && (
         <div className="flex gap-2 flex-wrap mb-2.5 animate-slide-up">
