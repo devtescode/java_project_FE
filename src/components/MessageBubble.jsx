@@ -16,7 +16,6 @@ function CopyMessageButton({ text }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      /* clipboard unavailable */
     }
   };
 
