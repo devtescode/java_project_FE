@@ -107,7 +107,7 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
     bg-transparent
     border-none
     outline-none
-    resize-none
+  resize-none
     text-text-primary
     font-body
     text-[16px]

@@ -185,7 +185,7 @@ export default function App() {
         <div
           ref={messagesContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto flex flex-col pt-[60px]"
+          className="flex-1 overflow-y-auto flex flex-col"
         >
           {!hasMessages && !isLoading ? (
             <WelcomeScreen onSuggestion={sendMessage} />
