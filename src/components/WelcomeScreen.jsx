@@ -30,7 +30,7 @@ export default function WelcomeScreen({ onSuggestion }) {
       <div className="flex flex-col mt-20 items-center gap-8 max-w-[640px] w-full animate-welcome-in">
 
         {/* Animated logo */}
-        <div className="relative w-20 h-20 flex items-center justify-center">
+        <div className="relative w-20 h-10 flex items-center justify-center">
           {/* Rings */}
           <div className="absolute w-20 h-20 rounded-full border border-accent-primary/20 animate-spin-slow" />
           <div className="absolute w-[60px] h-[60px] rounded-full border border-accent-primary/30 animate-spin-mid" />
