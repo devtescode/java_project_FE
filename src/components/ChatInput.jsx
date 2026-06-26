@@ -95,7 +95,6 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
           className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
         />
 
-        {/* Send row */}
         <div className="flex items-center justify-end gap-2.5">
           <span className="text-[0.72rem] text-text-muted tracking-wide">↵ send</span>
           <button
