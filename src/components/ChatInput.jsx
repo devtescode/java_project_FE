@@ -38,8 +38,7 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
   };
 
   return (
-    <div 
-     className="px-6 pb-4 pt-3 border-t border-border-subtle bg-bg-base">
+    <div className="px-6 pb-4 pt-3 border-t border-border-subtle bg-bg-base">
       {/* Quick prompts */}
       {showQuick && (
         <div className="flex gap-2 flex-wrap mb-2.5 animate-slide-up">
@@ -85,16 +84,6 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
         </div>
 
         {/* Textarea */}
-        {/* <textarea
-          ref={textareaRef}
-          value={text}
-          onChange={handleInput}
-          onKeyDown={handleKeyDown}
-          placeholder="Message Lumina… (Shift+Enter for new line)"
-          rows={1}
-          disabled={isLoading}
-          className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
-        /> */}
         <textarea
           ref={textareaRef}
           value={text}
@@ -103,27 +92,7 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
           placeholder="Message Lumina… (Shift+Enter for new line)"
           rows={1}
           disabled={isLoading}
-          className="
-    w-full
-    bg-transparent
-    border-none
-    outline-none
-  resize-none
-    text-text-primary
-    font-body
-    text-[16px]
-    leading-relaxed
-    min-h-6
-    max-h-[200px]
-    overflow-y-auto
-    placeholder:text-text-muted
-    disabled:opacity-50
-    disabled:cursor-not-allowed
-  "
-          style={{
-            WebkitTextSizeAdjust: "100%",
-            fontSize: "16px",
-          }}
+          className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
         />
 
         <div className="flex items-center justify-end gap-2.5">
