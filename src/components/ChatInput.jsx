@@ -84,7 +84,7 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
         </div>
 
         {/* Textarea */}
-        <textarea
+        {/* <textarea
           ref={textareaRef}
           value={text}
           onChange={handleInput}
@@ -93,6 +93,36 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
           rows={1}
           disabled={isLoading}
           className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
+        /> */}
+        <textarea
+          ref={textareaRef}
+          value={text}
+          onChange={handleInput}
+          onKeyDown={handleKeyDown}
+          placeholder="Message Lumina… (Shift+Enter for new line)"
+          rows={1}
+          disabled={isLoading}
+          className="
+    w-full
+    bg-transparent
+    border-none
+    outline-none
+    resize-none
+    text-text-primary
+    font-body
+    text-[16px]
+    leading-relaxed
+    min-h-6
+    max-h-[200px]
+    overflow-y-auto
+    placeholder:text-text-muted
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+  "
+          style={{
+            WebkitTextSizeAdjust: "100%",
+            fontSize: "16px",
+          }}
         />
 
         <div className="flex items-center justify-end gap-2.5">
