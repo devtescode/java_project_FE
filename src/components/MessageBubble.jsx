@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Copy, Check, User, Sparkles } from 'lucide-react';
+import { Copy, Check, User, Sparkles, Code2 } from 'lucide-react';
 
 function CopyMessageButton({ text }) {
   const [copied, setCopied] = useState(false);
@@ -106,7 +106,7 @@ const MessageBubble = memo(function MessageBubble({ message, isStreaming, isDark
         `}
         style={isUser ? { background: 'var(--user-avatar-bg)' } : undefined}
       >
-        {isUser ? <User size={13} /> : <Sparkles size={13} />}
+        {isUser ? <User size={13} /> : <Code2 size={13} />}
       </div>
 
       {/* Bubble */}
