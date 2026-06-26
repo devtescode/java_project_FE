@@ -120,13 +120,15 @@ export default function App() {
         isDark={isDark}
       />
 
-      <main
-        className={`
-          flex-1 flex flex-col min-w-0 relative bg-bg-base
-          transition-[filter,transform] duration-300 ease-out
-          ${isSidebarOverlayOpen ? 'max-md:blur-sm max-md:scale-[0.99] max-md:pointer-events-none' : ''}
-        `}
-      >
+     <main
+  className={`
+    flex-1 flex flex-col min-w-0 relative bg-bg-base
+    overflow-hidden
+    h-dvh
+    transition-[filter,transform] duration-300 ease-out
+    ${isSidebarOverlayOpen ? 'max-md:blur-sm max-md:scale-[0.99] max-md:pointer-events-none' : ''}
+  `}
+>
         {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0"> */}
         <header
           className="
