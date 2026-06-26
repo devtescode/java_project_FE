@@ -234,20 +234,20 @@ export default function App() {
           </button>
         )}
 
-        {/* <ChatInput
+        <ChatInput
           onSend={sendMessage}
           isLoading={isLoading}
           selectedModel={selectedModel}
           onModelChange={setSelectedModel}
-        /> */}
-        <div className="sticky bottom-0 z-30 bg-bg-base">
+        />
+        {/* <div className="sticky bottom-0 z-30 bg-bg-base">
           <ChatInput
             onSend={sendMessage}
             isLoading={isLoading}
             selectedModel={selectedModel}
             onModelChange={setSelectedModel}
           />
-        </div>
+        </div> */}
       </main>
     </div>
   );
