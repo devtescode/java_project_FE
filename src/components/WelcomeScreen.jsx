@@ -37,7 +37,7 @@ export default function WelcomeScreen({ onSuggestion }) {
           <div className="absolute w-[42px] h-[42px] rounded-full border border-accent-primary/40 animate-spin-inner" />
           {/* Center */}
           <div className="relative z-10 w-11 h-11 bg-accent-primary/10 border border-border-accent rounded-[14px] flex items-center justify-center text-accent-primary shadow-glow">
-            <Sparkles size={20} />
+            {/* <Sparkles size={20} /> */}
           </div>
         </div>
 
