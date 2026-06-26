@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: "::",
     port: 8090,
@@ -12,7 +11,6 @@ export default defineConfig(({ mode }) => ({
 
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
 
     VitePWA({
       registerType: "autoUpdate",
@@ -32,7 +30,7 @@ export default defineConfig(({ mode }) => ({
         id: "/",
         name: "Whisper Flow",
         short_name: "WhisperFlow",
-        description: "Receive anonymous messages safely",
+        description: "Your intelligent AI assistant for fast, accurate, and insightful conversations.",
         start_url: "/",
         scope: "/",
         display: "standalone",
@@ -65,11 +63,13 @@ export default defineConfig(({ mode }) => ({
         clientsClaim: true,
         skipWaiting: true,
 
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
+        globPatterns: [
+          "**/*.{js,css,html,ico,png,svg,woff2,json}"
+        ],
 
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/.*$/,
+            urlPattern: /^https:\/\/.*$/i,
             handler: "NetworkFirst",
             options: {
               cacheName: "api-cache",
@@ -86,11 +86,11 @@ export default defineConfig(({ mode }) => ({
         ],
       },
     }),
-  ].filter(Boolean),
+  ],
 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
