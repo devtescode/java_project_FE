@@ -27,7 +27,7 @@ const SUGGESTIONS = [
 export default function WelcomeScreen({ onSuggestion }) {
   return (
     <div className="flex-1 flex items-center justify-center p-10 overflow-y-auto">
-      <div className="flex flex-col mt-20 items-center gap-8 max-w-[640px] w-full animate-welcome-in">
+      <div className="flex flex-col mt-50 items-center gap-8 max-w-[640px] w-full animate-welcome-in">
 
         {/* Animated logo */}
         <div className="relative w-20 h-10 flex items-center justify-center">
