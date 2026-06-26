@@ -47,7 +47,7 @@ export default function Sidebar({
         {(!collapsed || isMobile) && (
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="w-7 h-7 bg-accent-primary/10 border border-border-accent rounded-md flex items-center justify-center text-accent-primary flex-shrink-0">
-              <Sparkles size={14} />
+              {/* <Sparkles size={14} /> */}
             </div>
             <span className="font-display font-bold text-[1.1rem] tracking-wide gradient-text bg-brand-text truncate">
               Lumina
