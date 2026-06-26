@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Code2, Brain, Pen, Zap } from 'lucide-react';
+import { Code2, Brain, Pen, Zap } from 'lucide-react';
 
 const SUGGESTIONS = [
   {

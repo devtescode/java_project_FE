@@ -5,7 +5,6 @@ import {
   Trash2,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   Sun,
   Moon,
   X,
