@@ -1,5 +1,5 @@
 // const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8090/api';
-const API_BASE = process.env.REACT_APP_API_URL || 'javaprojectbe-production.up.railway.app/api';
+const API_BASE = process.env.REACT_APP_API_URL || 'https://javaprojectbe-production.up.railway.app/api';
 
 export const chatAPI = {
   sendMessage: async (messages, model = 'gpt-4o-mini') => {
