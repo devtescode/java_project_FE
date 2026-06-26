@@ -83,8 +83,7 @@ export default function App() {
   }
 
   return (
-    // <div className="flex h-screen w-screen overflow-hidden relative z-0 bg-bg-base">
-    <div className="flex h-dvh w-screen overflow-hidden relative z-0 bg-bg-base">
+    <div className="flex h-screen w-screen overflow-hidden relative z-0 bg-bg-base">
       {/* Background orbs */}
       <div className="fixed w-[600px] h-[600px] -top-[200px] -right-[100px] rounded-full pointer-events-none z-0 animate-float1 bg-orb-purple blur-[80px]" />
       <div className="fixed w-[400px] h-[400px] -bottom-[100px] left-[200px] rounded-full pointer-events-none z-0 animate-float2 bg-orb-teal blur-[80px]" />
@@ -120,37 +119,14 @@ export default function App() {
         isDark={isDark}
       />
 
-     <main
-  className={`
-    flex-1 flex flex-col min-w-0 relative bg-bg-base
-    overflow-hidden
-    h-dvh
-    transition-[filter,transform] duration-300 ease-out
-    ${isSidebarOverlayOpen ? 'max-md:blur-sm max-md:scale-[0.99] max-md:pointer-events-none' : ''}
-  `}
->
-        {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0"> */}
-        <header
-          className="
-    fixed
-    top-0
-    left-0
-    right-0
-    h-[60px]
-    flex
-    items-center
-    justify-between
-    px-4
-    md:px-6
-    border-b
-    border-border-subtle
-    bg-bg-base/90
-    backdrop-blur-xl
-    z-40
-    flex-shrink-0
-    will-change-transform
-  "
-        >
+      <main
+        className={`
+          flex-1 flex flex-col min-w-0 relative bg-bg-base
+          transition-[filter,transform] duration-300 ease-out
+          ${isSidebarOverlayOpen ? 'max-md:blur-sm max-md:scale-[0.99] max-md:pointer-events-none' : ''}
+        `}
+      >
+        <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0">
           <div className="flex items-center gap-2.5 min-w-0">
             {!isDesktop && (
               <button
@@ -240,14 +216,6 @@ export default function App() {
           selectedModel={selectedModel}
           onModelChange={setSelectedModel}
         />
-        {/* <div className="sticky bottom-0 z-30 bg-bg-base">
-          <ChatInput
-            onSend={sendMessage}
-            isLoading={isLoading}
-            selectedModel={selectedModel}
-            onModelChange={setSelectedModel}
-          />
-        </div> */}
       </main>
     </div>
   );
