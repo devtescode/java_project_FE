@@ -66,21 +66,7 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
             <Zap size={13} />
           </button>
 
-          {/* <select
-            value={selectedModel}
-            onChange={(e) => onModelChange(e.target.value)}
-            className="px-2.5 py-1.5 bg-bg-base border border-border-subtle rounded-md text-text-muted font-body text-[0.75rem] cursor-pointer hover:border-border-accent hover:text-text-secondary focus:outline-none focus:border-border-accent transition-all duration-200 appearance-none pr-6"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2344445a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 8px center',
-            }}
-          >
-            <option value="gpt-4o-mini">GPT-4o Mini</option>
-            <option value="gpt-4o">GPT-4o</option>
-            <option value="gpt-4-turbo">GPT-4 Turbo</option>
-            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-          </select> */}
+
         </div>
 
         {/* Textarea */}
@@ -92,8 +78,25 @@ export default function ChatInput({ onSend, isLoading, selectedModel, onModelCha
           placeholder="Message Lumina… (Shift+Enter for new line)"
           rows={1}
           disabled={isLoading}
-          className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
-        />
+          // className="w-full bg-transparent border-none outline-none resize-none text-text-primary font-body text-[0.9rem] leading-relaxed min-h-6 max-h-[200px] overflow-y-auto placeholder:text-text-muted disabled:opacity-50 disabled:cursor-not-allowed"
+
+                      className="
+                      w-full
+                      bg-transparent
+                      border-none
+                      outline-none
+                      resize-none
+                      text-text-primary
+                      font-body
+                      text-base
+                      leading-relaxed
+                      min-h-6
+                      max-h-[200px]
+                      overflow-y-auto
+                      placeholder:text-text-muted
+                      disabled:opacity-50
+                      disabled:cursor-not-allowed
+                    "/>
 
         <div className="flex items-center justify-end gap-2.5">
           <span className="text-[0.72rem] text-text-muted tracking-wide">↵ send</span>
