@@ -35,7 +35,7 @@ export default function Sidebar({
         flex flex-col h-screen bg-bg-surface border-r border-border-subtle
         transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0
         ${isMobile
-          ? `fixed top-0 left-0 z-30 w-[min(280px,85vw)] shadow-2xl
+          ? `fixed top-0 left-0 z-50 w-[min(280px,85vw)] shadow-2xl
              ${isOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'}`
           : `${collapsed ? 'w-[60px] min-w-[60px]' : 'w-[280px] min-w-[280px]'} relative z-10`
         }
