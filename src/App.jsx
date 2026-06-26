@@ -83,7 +83,8 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden relative z-0 bg-bg-base">
+    // <div className="flex h-screen w-screen overflow-hidden relative z-0 bg-bg-base">
+      <div className="flex min-h-dvh w-full overflow-hidden relative z-0 bg-bg-base">
       {/* Background orbs */}
       <div className="fixed w-[600px] h-[600px] -top-[200px] -right-[100px] rounded-full pointer-events-none z-0 animate-float1 bg-orb-purple blur-[80px]" />
       <div className="fixed w-[400px] h-[400px] -bottom-[100px] left-[200px] rounded-full pointer-events-none z-0 animate-float2 bg-orb-teal blur-[80px]" />
