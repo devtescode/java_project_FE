@@ -29,6 +29,7 @@ root.render(
     <h1 style={{ color: "white", padding: "20px" }}>
       Hello Lumina AI
     </h1>
+    <App />
   </React.StrictMode>
 );
 
