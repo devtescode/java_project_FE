@@ -32,7 +32,7 @@ export default function Sidebar({
   return (
     <aside
       className={`
-        flex flex-col h-screen bg-bg-surface border-r border-border-subtle
+        flex flex-col h-dvh bg-bg-surface border-r border-border-subtle
         transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0
         ${isMobile
           ? `fixed top-0 left-0 z-50 w-[min(280px,85vw)] shadow-2xl
@@ -43,7 +43,11 @@ export default function Sidebar({
       aria-hidden={isMobile && !isOpen}
     >
       {/* Header */}
-      <div className={`flex items-center border-b border-border-subtle px-4 py-5 gap-2 ${collapsed && !isMobile ? 'justify-center' : 'justify-between'}`}>
+      <div
+        className={`flex items-center border-b border-border-subtle px-4 py-5 gap-2 ${
+          collapsed && !isMobile ? 'justify-center' : 'justify-between'
+        }`}
+      >
         {(!collapsed || isMobile) && (
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="w-7 h-7 bg-accent-primary/10 border border-border-accent rounded-md flex items-center justify-center text-accent-primary flex-shrink-0">
@@ -54,6 +58,7 @@ export default function Sidebar({
             </span>
           </div>
         )}
+
         <div className="flex items-center gap-1 flex-shrink-0">
           {isMobile && (
             <button
@@ -64,13 +69,18 @@ export default function Sidebar({
               <X size={14} />
             </button>
           )}
+
           {!isMobile && (
             <button
               onClick={onToggle}
               className="w-7 h-7 border border-border-muted rounded-md bg-transparent text-text-secondary hover:bg-bg-hover hover:text-text-primary hover:border-border-accent flex items-center justify-center transition-all duration-200"
               aria-label="Toggle sidebar"
             >
-              {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+              {collapsed ? (
+                <ChevronRight size={14} />
+              ) : (
+                <ChevronLeft size={14} />
+              )}
             </button>
           )}
         </div>
@@ -79,13 +89,13 @@ export default function Sidebar({
       {/* New Chat */}
       <button
         onClick={onNewConversation}
-        className={`
+        className="
           mx-3 my-3 flex items-center justify-center gap-2 px-3.5 py-2.5
           bg-accent-primary/10 border border-border-accent rounded-xl
           text-text-accent text-sm font-medium font-body
           hover:bg-accent-primary/20 hover:border-accent-primary hover:text-text-primary hover:shadow-glow
           transition-all duration-200 whitespace-nowrap
-        `}
+        "
       >
         <Plus size={14} />
         {(!collapsed || isMobile) && <span>New Chat</span>}
@@ -93,10 +103,11 @@ export default function Sidebar({
 
       {/* Conversations */}
       {(!collapsed || isMobile) && (
-        <div className="flex-1 overflow-y-auto px-2 py-1">
+        <div className="flex-1 min-h-0 overflow-y-auto px-2 py-1">
           <div className="text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-text-muted px-2 pt-2 pb-1.5">
             Recent
           </div>
+
           <div className="flex flex-col gap-0.5">
             {conversations.map((conv) => (
               <div
@@ -107,30 +118,43 @@ export default function Sidebar({
                 className={`
                   flex items-center gap-2.5 px-2.5 py-2.5 rounded-xl cursor-pointer
                   border transition-all duration-200 relative group
-                  ${conv.id === activeConvId
-                    ? 'bg-accent-primary/10 border-border-accent'
-                    : 'border-transparent hover:bg-bg-hover hover:border-border-subtle'
+                  ${
+                    conv.id === activeConvId
+                      ? 'bg-accent-primary/10 border-border-accent'
+                      : 'border-transparent hover:bg-bg-hover hover:border-border-subtle'
                   }
                 `}
               >
                 <MessageSquare
                   size={13}
-                  className={`flex-shrink-0 ${conv.id === activeConvId ? 'text-accent-primary' : 'text-text-muted'}`}
+                  className={`flex-shrink-0 ${
+                    conv.id === activeConvId
+                      ? 'text-accent-primary'
+                      : 'text-text-muted'
+                  }`}
                 />
+
                 <div className="flex-1 min-w-0 flex flex-col gap-0.5">
-                  <span className={`text-[0.825rem] truncate ${conv.id === activeConvId ? 'text-text-primary' : 'text-text-secondary'}`}>
+                  <span
+                    className={`text-[0.825rem] truncate ${
+                      conv.id === activeConvId
+                        ? 'text-text-primary'
+                        : 'text-text-secondary'
+                    }`}
+                  >
                     {conv.title}
                   </span>
+
                   <span className="text-[0.7rem] text-text-muted">
                     {format(conv.createdAt, 'MMM d')}
                   </span>
                 </div>
-                {/* Delete button - visible on mobile always, on desktop only on hover */}
+
                 {(isMobile || hoveredId === conv.id) && (
                   <button
-                    onClick={(e) => { 
-                      e.stopPropagation(); 
-                      onDeleteConversation(conv.id); 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onDeleteConversation(conv.id);
                     }}
                     className="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-red-500/10 hover:bg-red-500/20 rounded text-red-400 hover:text-red-300 transition-all duration-200"
                     aria-label="Delete conversation"
@@ -145,7 +169,11 @@ export default function Sidebar({
       )}
 
       {/* Theme Toggle */}
-      <div className={`px-3 py-3 border-t border-border-subtle ${collapsed && !isMobile ? 'flex justify-center' : ''}`}>
+      <div
+        className={`flex-shrink-0 px-3 py-3 border-t border-border-subtle ${
+          collapsed && !isMobile ? 'flex justify-center' : ''
+        } ${isMobile ? 'pb-5' : ''}`}
+      >
         <button
           onClick={onToggleTheme}
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -160,7 +188,18 @@ export default function Sidebar({
             ${isMobile ? 'w-full' : ''}
           `}
         >
-          {isDark ? <Sun size={15} className="text-accent-secondary flex-shrink-0" /> : <Moon size={15} className="text-accent-primary flex-shrink-0" />}
+          {isDark ? (
+            <Sun
+              size={15}
+              className="text-accent-secondary flex-shrink-0"
+            />
+          ) : (
+            <Moon
+              size={15}
+              className="text-accent-primary flex-shrink-0"
+            />
+          )}
+
           {(!collapsed || isMobile) && (
             <span>{isDark ? 'Light mode' : 'Dark mode'}</span>
           )}
