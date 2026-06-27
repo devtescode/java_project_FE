@@ -41,7 +41,6 @@ export default function WelcomeScreen({ onSuggestion }) {
           </div>
         </div>
 
-        {/* Heading */}
         <div className="text-center">
           <h1 className="font-display text-[2rem] font-bold tracking-tight mb-2.5 gradient-text bg-hero-text">
             Good to see you.
@@ -51,7 +50,6 @@ export default function WelcomeScreen({ onSuggestion }) {
           </p>
         </div>
 
-        {/* Suggestion cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full">
           {SUGGESTIONS.map(({ icon, title, prompt }) => (
             <button
