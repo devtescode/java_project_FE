@@ -106,7 +106,7 @@ export default function Sidebar({
                 onMouseLeave={() => setHoveredId(null)}
                 className={`
                   flex items-center gap-2.5 px-2.5 py-2.5 rounded-xl cursor-pointer
-                  border transition-all duration-200 relative
+                  border transition-all duration-200 relative group
                   ${conv.id === activeConvId
                     ? 'bg-accent-primary/10 border-border-accent'
                     : 'border-transparent hover:bg-bg-hover hover:border-border-subtle'
@@ -125,13 +125,17 @@ export default function Sidebar({
                     {format(conv.createdAt, 'MMM d')}
                   </span>
                 </div>
-                {hoveredId === conv.id && (
+                {/* Delete button - visible on mobile always, on desktop only on hover */}
+                {(isMobile || hoveredId === conv.id) && (
                   <button
-                    onClick={(e) => { e.stopPropagation(); onDeleteConversation(conv.id); }}
-                    className="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-red-500/10 hover:bg-red-500/20 rounded text-red-400 transition-all duration-200"
-                    aria-label="Delete"
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      onDeleteConversation(conv.id); 
+                    }}
+                    className="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-red-500/10 hover:bg-red-500/20 rounded text-red-400 hover:text-red-300 transition-all duration-200"
+                    aria-label="Delete conversation"
                   >
-                    <Trash2 size={11} />
+                    <Trash2 size={13} />
                   </button>
                 )}
               </div>
@@ -140,7 +144,7 @@ export default function Sidebar({
         </div>
       )}
 
-      {/* Footer: theme toggle */}
+      {/* Theme Toggle */}
       <div className={`px-3 py-3 border-t border-border-subtle ${collapsed && !isMobile ? 'flex justify-center' : ''}`}>
         <button
           onClick={onToggleTheme}
@@ -153,6 +157,7 @@ export default function Sidebar({
             hover:bg-bg-hover hover:border-border-accent hover:text-text-primary
             transition-all duration-200
             ${collapsed && !isMobile ? 'justify-center w-auto px-2.5' : ''}
+            ${isMobile ? 'w-full' : ''}
           `}
         >
           {isDark ? <Sun size={15} className="text-accent-secondary flex-shrink-0" /> : <Moon size={15} className="text-accent-primary flex-shrink-0" />}
