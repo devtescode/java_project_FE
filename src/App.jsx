@@ -127,7 +127,7 @@ export default function App() {
         `}
       >
         {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0"> */}
-              <header
+              {/* <header
                 className="
           sticky
           top-0
@@ -144,7 +144,13 @@ export default function App() {
           backdrop-blur-xl
           flex-shrink-0
         "
-        >
+        > */}
+        <header
+  style={{
+    paddingTop: "env(safe-area-inset-top)"
+  }}
+  className="sticky top-0 z-50 h-16 flex items-center justify-between px-4 md:px-6 bg-bg-base/95 backdrop-blur-xl border-b border-border-subtle"
+>
           <div className="flex items-center gap-2.5 min-w-0">
             {!isDesktop && (
               <button
