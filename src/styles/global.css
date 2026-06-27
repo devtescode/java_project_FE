@@ -90,6 +90,8 @@
     @apply bg-bg-base text-text-primary font-body;
     overflow: hidden;
     transition: background-color 0.25s ease, color 0.25s ease;
+      padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
   }
 
   #root {

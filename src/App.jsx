@@ -83,7 +83,14 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-dvh w-full overflow-hidden relative bg-bg-base">
+    // <div className="flex h-dvh w-full overflow-hidden relative bg-bg-base">
+    <div
+      className="flex min-h-dvh w-full overflow-hidden bg-bg-base"
+      style={{
+        paddingTop: "env(safe-area-inset-top)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
+    >
       {/* Background orbs */}
       <div className="fixed w-[600px] h-[600px] -top-[200px] -right-[100px] rounded-full pointer-events-none z-0 animate-float1 bg-orb-purple blur-[80px]" />
       <div className="fixed w-[400px] h-[400px] -bottom-[100px] left-[200px] rounded-full pointer-events-none z-0 animate-float2 bg-orb-teal blur-[80px]" />
@@ -127,7 +134,7 @@ export default function App() {
         `}
       >
         {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0"> */}
-              {/* <header
+        {/* <header
                 className="
           sticky
           top-0
@@ -146,11 +153,11 @@ export default function App() {
         "
         > */}
         <header
-  style={{
-    paddingTop: "env(safe-area-inset-top)"
-  }}
-  className="sticky top-0 z-50 h-16 flex items-center justify-between px-4 md:px-6 bg-bg-base/95 backdrop-blur-xl border-b border-border-subtle"
->
+          style={{
+            paddingTop: "env(safe-area-inset-top)"
+          }}
+          className="sticky top-0 z-50 h-16 flex items-center justify-between px-4 md:px-6 bg-bg-base/95 backdrop-blur-xl border-b border-border-subtle"
+        >
           <div className="flex items-center gap-2.5 min-w-0">
             {!isDesktop && (
               <button
