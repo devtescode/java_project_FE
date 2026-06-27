@@ -83,8 +83,7 @@ export default function App() {
   }
 
   return (
-    // <div className="flex h-screen w-screen overflow-hidden relative z-0 bg-bg-base">
-    <div className="flex min-h-dvh w-full overflow-hidden relative z-0 bg-bg-base">
+    <div className="flex h-dvh w-full overflow-hidden relative bg-bg-base">
       {/* Background orbs */}
       <div className="fixed w-[600px] h-[600px] -top-[200px] -right-[100px] rounded-full pointer-events-none z-0 animate-float1 bg-orb-purple blur-[80px]" />
       <div className="fixed w-[400px] h-[400px] -bottom-[100px] left-[200px] rounded-full pointer-events-none z-0 animate-float2 bg-orb-teal blur-[80px]" />
@@ -127,7 +126,25 @@ export default function App() {
           ${isSidebarOverlayOpen ? 'max-md:blur-sm max-md:scale-[0.99] max-md:pointer-events-none' : ''}
         `}
       >
-        {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0">
+        {/* <header className="flex items-center justify-between px-4 md:px-6 h-[60px] border-b border-border-subtle bg-bg-base/80 backdrop-blur-xl z-10 flex-shrink-0"> */}
+              <header
+                className="
+          sticky
+          top-0
+          z-50
+          flex
+          h-16
+          items-center
+          justify-between
+          px-4
+          md:px-6
+          border-b
+          border-border-subtle
+          bg-bg-base/95
+          backdrop-blur-xl
+          flex-shrink-0
+        "
+        >
           <div className="flex items-center gap-2.5 min-w-0">
             {!isDesktop && (
               <button
@@ -157,75 +174,6 @@ export default function App() {
               className="w-8 h-8 border border-border-subtle rounded-md bg-transparent text-text-muted hover:bg-bg-hover hover:text-text-secondary hover:border-border-muted flex items-center justify-center transition-all duration-200"
             >
               <MoreHorizontal size={14} />
-            </button>
-          </div>
-        </header> */}
-        <header
-          className="
-    sticky top-0 z-40
-    flex items-center justify-between
-    h-16
-    px-4 md:px-6
-    bg-bg-base/90
-    backdrop-blur-xl
-    border-b border-border-subtle
-    flex-shrink-0
-  "
-        >
-          <div className="flex items-center gap-3 min-w-0">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              aria-label="Open sidebar"
-              className="
-        flex md:hidden
-        w-10 h-10
-        items-center justify-center
-        rounded-lg
-        border border-border-subtle
-        bg-bg-elevated
-        text-text-primary
-        hover:bg-bg-hover
-        transition
-      "
-            >
-              <Menu size={20} />
-            </button>
-
-            <h2 className="truncate font-display font-semibold text-base text-text-primary">
-              {activeConversation?.title || "New Conversation"}
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {hasMessages && (
-              <button
-                onClick={clearMessages}
-                title="Clear conversation"
-                className="
-          w-10 h-10
-          rounded-lg
-          border border-border-subtle
-          flex items-center justify-center
-          hover:bg-bg-hover
-          transition
-        "
-              >
-                <RotateCcw size={18} />
-              </button>
-            )}
-
-            <button
-              title="Options"
-              className="
-        w-10 h-10
-        rounded-lg
-        border border-border-subtle
-        flex items-center justify-center
-        hover:bg-bg-hover
-        transition
-      "
-            >
-              <MoreHorizontal size={18} />
             </button>
           </div>
         </header>

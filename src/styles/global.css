@@ -61,24 +61,57 @@
 }
 
 @layer base {
-  *, *::before, *::after { box-sizing: border-box; }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
+  /* body {
     @apply bg-bg-base text-text-primary font-body overflow-hidden h-screen;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
-  #root { @apply h-screen flex; }
+  #root { @apply h-screen flex; } */
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100dvh;
+  }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-text-muted rounded-sm; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-text-secondary; }
+  body {
+    @apply bg-bg-base text-text-primary font-body;
+    overflow: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  #root {
+    display: flex;
+    min-height: 100dvh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-text-muted rounded-sm;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary;
+  }
 
   ::selection {
     background: var(--selection-bg);
@@ -108,9 +141,17 @@
     @apply inline-block w-0.5 h-[1em] bg-accent-primary rounded-sm ml-0.5 align-text-bottom animate-cursor-blink;
   }
 
-  .dot-1 { animation-delay: 0s; }
-  .dot-2 { animation-delay: 0.2s; }
-  .dot-3 { animation-delay: 0.4s; }
+  .dot-1 {
+    animation-delay: 0s;
+  }
+
+  .dot-2 {
+    animation-delay: 0.2s;
+  }
+
+  .dot-3 {
+    animation-delay: 0.4s;
+  }
 
   .bg-orb-purple {
     background: radial-gradient(circle, var(--orb-purple) 0%, transparent 70%);
