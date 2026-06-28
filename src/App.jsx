@@ -46,27 +46,7 @@ export default function App() {
     if (isDesktop) setSidebarOpen(false);
   }, [isDesktop]);
 
-  // useEffect(() => {
-  //   if (navigator.onLine) {
-  //     chatAPI.healthCheck().catch(() => { });
-  //   }
-  // }, []);
-  
-  // useEffect(() => {
-  //   const wakeServer = () => {
-  //     if (navigator.onLine) {
-  //       chatAPI.healthCheck().catch(() => { });
-  //     }
-  //   };
 
-  //   wakeServer();
-
-  //   window.addEventListener("online", wakeServer);
-
-  //   return () => {
-  //     window.removeEventListener("online", wakeServer);
-  //   };
-  // }, []);
   useEffect(() => {
   const wakeServer = () => {
     if (!navigator.onLine) return;
