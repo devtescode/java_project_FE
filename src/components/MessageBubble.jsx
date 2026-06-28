@@ -6,6 +6,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Copy, Check, User, Code2 } from 'lucide-react';
 
+// ========== CopyMessageButton Component ==========
 function CopyMessageButton({ text }) {
   const [copied, setCopied] = useState(false);
 
@@ -16,6 +17,7 @@ function CopyMessageButton({ text }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
+      // Silently fail if clipboard API is not available
     }
   };
 
@@ -32,6 +34,8 @@ function CopyMessageButton({ text }) {
   );
 }
 
+// ========== CodeBlock Component ==========
+// MOVED THIS BEFORE MessageBubble to fix the "CodeBlock is not defined" error
 function CodeBlock({ inline, className, children, isDark, ...props }) {
   const [copied, setCopied] = useState(false);
   const match = /language-(\w+)/.exec(className || '');
@@ -89,6 +93,7 @@ function CodeBlock({ inline, className, children, isDark, ...props }) {
   );
 }
 
+// ========== MessageBubble Component ==========
 const MessageBubble = memo(function MessageBubble({ message, isStreaming, isDark = true }) {
   const isUser = message.role === 'user';
 
