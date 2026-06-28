@@ -7,7 +7,7 @@
 //       headers: { 'Content-Type': 'application/json' },
 //       body: JSON.stringify({ messages, model }),
 //     });
-
+ 
 //     if (!response.ok) {
 //       const error = await response.json().catch(() => ({}));
 //       throw new Error(error.message || `HTTP ${response.status}`);
