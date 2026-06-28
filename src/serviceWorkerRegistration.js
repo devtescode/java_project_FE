@@ -1,14 +1,32 @@
+// export function register() {
+//   if ("serviceWorker" in navigator) {
+//     window.addEventListener("load", () => {
+//       navigator.serviceWorker
+//         .register("/service-worker.js")
+//         .then((registration) => {
+//           console.log("Service Worker registered:", registration);
+//         })
+//         .catch((error) => {
+//           console.log("Service Worker registration failed:", error);
+//         });
+//     });
+//   }
+// }
+
 export function register() {
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then((registration) => {
-          console.log("Service Worker registered:", registration);
-        })
-        .catch((error) => {
-          console.log("Service Worker registration failed:", error);
-        });
+    window.addEventListener("load", async () => {
+      try {
+        const registration = await navigator.serviceWorker.register(
+          "/service-worker.js"
+        );
+
+        console.log("SW registered:", registration);
+
+        registration.update();
+      } catch (err) {
+        console.error(err);
+      }
     });
   }
 }
