@@ -7,6 +7,7 @@ import { useChat } from './hooks/useChat';
 import { useTheme } from './hooks/useTheme';
 import { useMediaQuery } from './hooks/useMediaQuery';
 import { RotateCcw, MoreHorizontal, ChevronDown, Menu } from 'lucide-react';
+import { chatAPI } from "./services/api"; // adjust the path if necessary
 import './styles/global.css';
 
 export default function App() {
@@ -44,6 +45,27 @@ export default function App() {
   useEffect(() => {
     if (isDesktop) setSidebarOpen(false);
   }, [isDesktop]);
+
+  // useEffect(() => {
+  //   if (navigator.onLine) {
+  //     chatAPI.healthCheck().catch(() => { });
+  //   }
+  // }, []);
+  useEffect(() => {
+    const wakeServer = () => {
+      if (navigator.onLine) {
+        chatAPI.healthCheck().catch(() => { });
+      }
+    };
+
+    wakeServer();
+
+    window.addEventListener("online", wakeServer);
+
+    return () => {
+      window.removeEventListener("online", wakeServer);
+    };
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = !isDesktop && sidebarOpen ? 'hidden' : '';

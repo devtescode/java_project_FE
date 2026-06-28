@@ -31,7 +31,7 @@
 // Fallback to localhost during development if REACT_APP_API_URL is not set
 // const API_BASE =
 //   process.env.REACT_APP_API_URL || "http://localhost:8090/api";
-  const API_BASE = process.env.REACT_APP_API_URL
+const API_BASE = process.env.REACT_APP_API_URL
 
 const fetchWithTimeout = async (url, options = {}, timeout = 30000) => {
   const controller = new AbortController();
@@ -55,17 +55,42 @@ const fetchWithTimeout = async (url, options = {}, timeout = 30000) => {
 };
 
 // Retry request once before failing
-const fetchWithRetry = async (url, options, retries = 1) => {
+// const fetchWithRetry = async (url, options, retries = 1) => {
+//   try {
+//     return await fetchWithTimeout(url, options);
+//   } catch (err) {
+//     if (retries <= 0) throw err;
+
+//     console.warn("Request failed. Retrying...");
+
+//     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+//     return fetchWithRetry(url, options, retries - 1);
+//   }
+// };
+const fetchWithRetry = async (
+  url,
+  options,
+  retries = 5
+) => {
   try {
-    return await fetchWithTimeout(url, options);
+    return await fetchWithTimeout(url, options, 60000);
   } catch (err) {
     if (retries <= 0) throw err;
 
-    console.warn("Request failed. Retrying...");
+    console.log(
+      `Retrying... ${retries} attempts left`
+    );
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise(resolve =>
+      setTimeout(resolve, 3000)
+    );
 
-    return fetchWithRetry(url, options, retries - 1);
+    return fetchWithRetry(
+      url,
+      options,
+      retries - 1
+    );
   }
 };
 
@@ -88,7 +113,7 @@ export const chatAPI = {
 
         try {
           error = await response.json();
-        } catch {}
+        } catch { }
 
         throw new Error(error.message || `HTTP ${response.status}`);
       }
