@@ -48,30 +48,34 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
-  // Never cache API requests
+  // Don't cache API requests
   if (event.request.url.includes("/api/")) return;
 
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        const clone = response.clone();
+    caches.match(event.request).then((cachedResponse) => {
+      const networkFetch = fetch(event.request)
+        .then((networkResponse) => {
+          if (
+            networkResponse &&
+            networkResponse.status === 200 &&
+            networkResponse.type === "basic"
+          ) {
+            const responseClone = networkResponse.clone();
 
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, clone);
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+          }
+
+          return networkResponse;
+        })
+        .catch(() => {
+          if (event.request.mode === "navigate") {
+            return caches.match("/");
+          }
         });
 
-        return response;
-      })
-      .catch(async () => {
-        const cached = await caches.match(event.request);
-
-        if (cached) {
-          return cached;
-        }
-
-        if (event.request.mode === "navigate") {
-          return caches.match("/");
-        }
-      })
+      return cachedResponse || networkFetch;
+    })
   );
 });

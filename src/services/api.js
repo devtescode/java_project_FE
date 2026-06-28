@@ -54,20 +54,6 @@ const fetchWithTimeout = async (url, options = {}, timeout = 30000) => {
   }
 };
 
-// Retry request once before failing
-// const fetchWithRetry = async (url, options, retries = 1) => {
-//   try {
-//     return await fetchWithTimeout(url, options);
-//   } catch (err) {
-//     if (retries <= 0) throw err;
-
-//     console.warn("Request failed. Retrying...");
-
-//     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-//     return fetchWithRetry(url, options, retries - 1);
-//   }
-// };
 const fetchWithRetry = async (
   url,
   options,
