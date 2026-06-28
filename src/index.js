@@ -13,7 +13,7 @@ import ReactDOM from "react-dom/client";
 import "./styles/global.css";
 import { applyTheme, getInitialTheme } from "./hooks/useTheme";
 import App from "./App";
-// import { register } from "./serviceWorkerRegistration";
+import { register } from "./serviceWorkerRegistration";
 
 applyTheme(getInitialTheme());
 
@@ -26,4 +26,4 @@ root.render(
 );
 
 // Register the service worker
-// register();
+register();

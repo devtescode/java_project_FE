@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+ 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
+
    <meta
   name="apple-mobile-web-app-status-bar-style"
   content="default"
@@ -35,45 +35,77 @@
   <div id="root"></div>
 </body>
 
-</html>
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <meta name="theme-color" content="#070710" />
-    <meta
-      name="description"
-      content="Lumina AI - Your intelligent AI assistant for fast, accurate, and insightful conversations."
-    />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Lumina AI" />
-
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="icon" href="%PUBLIC_URL%/whisper-flow-logo.png" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/whisper-flow-logo.png" />
-
-    <script>
-      (function () {
-        var t = localStorage.getItem("lumina-theme") || "dark";
-        document.documentElement.classList.add(t);
-      })();
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Lumina AI</title>
-  </head>
-
-  <body>
-    <noscript>You need to enable JavaScript to run Lumina AI.</noscript>
-    <div id="root"></div>
-  </body>
 </html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- SEO -->
+  <title>Lumina AI</title>
+
+  <meta
+    name="description"
+    content="Lumina AI - Your intelligent AI assistant for fast, accurate, and insightful conversations."
+  />
+
+  <meta
+    name="keywords"
+    content="Lumina AI, AI Assistant, ChatGPT, Artificial Intelligence, AI Chatbot"
+  />
+
+  <meta name="author" content="Lumina AI" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#070710" />
+
+  <!-- PWA -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  />
+  <meta
+    name="apple-mobile-web-app-title"
+    content="Lumina AI"
+  />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Icons -->
+  <link rel="icon" href="%PUBLIC_URL%/whisper-flow-logo.png" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/whisper-flow-logo.png" />
+
+  <!-- Theme before React loads -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem("lumina-theme") || "dark";
+      document.documentElement.classList.add(theme);
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run Lumina AI.
+  </noscript>
+
+  <div id="root"></div>
+</body>
+
+</html>
