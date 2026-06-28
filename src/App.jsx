@@ -51,21 +51,39 @@ export default function App() {
   //     chatAPI.healthCheck().catch(() => { });
   //   }
   // }, []);
+  
+  // useEffect(() => {
+  //   const wakeServer = () => {
+  //     if (navigator.onLine) {
+  //       chatAPI.healthCheck().catch(() => { });
+  //     }
+  //   };
+
+  //   wakeServer();
+
+  //   window.addEventListener("online", wakeServer);
+
+  //   return () => {
+  //     window.removeEventListener("online", wakeServer);
+  //   };
+  // }, []);
   useEffect(() => {
-    const wakeServer = () => {
-      if (navigator.onLine) {
-        chatAPI.healthCheck().catch(() => { });
-      }
-    };
+  const wakeServer = () => {
+    if (!navigator.onLine) return;
 
-    wakeServer();
+    setTimeout(() => {
+      chatAPI.healthCheck().catch(() => {});
+    }, 3000);
+  };
 
-    window.addEventListener("online", wakeServer);
+  wakeServer();
 
-    return () => {
-      window.removeEventListener("online", wakeServer);
-    };
-  }, []);
+  window.addEventListener("online", wakeServer);
+
+  return () => {
+    window.removeEventListener("online", wakeServer);
+  };
+}, []);
 
   useEffect(() => {
     document.body.style.overflow = !isDesktop && sidebarOpen ? 'hidden' : '';
